@@ -1,0 +1,35 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 0;
+}
+.slide1 {
+  background: #fff;
+  padding: 40px 0;
+  text-align: center;
+  border-radius: 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.logo {
+  width: 90px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.company-img {
+  max-width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  margin-top: 16px;
+}
+.slide7 {
+  background: #e0e7ff;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 32px;
+}
