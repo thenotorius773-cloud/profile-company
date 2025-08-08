@@ -12,20 +12,6 @@
             font-family: 'Inter', sans-serif;
         }
         
-        .slide {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        .slide.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
@@ -41,7 +27,7 @@
             font-size: 24px;
         }
         
-        .slide-counter {
+        .page-counter {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -72,10 +58,37 @@
             background: white;
             transform: scale(1.2);
         }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            to { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); }
+        }
     </style>
 </head>
 <body class="gradient-bg min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="container mx-auto px-2 py-4 max-w-7xl min-h-screen flex flex-col">
         <!-- Language Toggle -->
         <div class="fixed top-4 left-4 z-50">
             <button id="langToggle" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center border-2 border-blue-500 shadow-lg">
@@ -83,540 +96,10 @@
                 <span id="langText" class="ml-2">中文</span>
             </button>
         </div>
-        
 
-        <!-- Slide 1: Title -->
-        <div class="slide active bg-white rounded-2xl shadow-2xl p-12 text-center relative">
-            <div class="slide-counter">1/8</div>
-            <img src="https://sf-static.upanhlaylink.com/img/image_20250806116b4c33f4fc1abc7f2f8a9b3cc8da24.jpg" alt="Thành Hạo Logo" class="w-32 h-32 mx-auto mb-8 object-contain">
-            <h1 class="text-5xl font-bold text-gray-800 mb-6">
-                <span class="vi">Hồ Sơ Năng Lực</span>
-                <span class="zh hidden">公司资质简介</span>
-            </h1>
-            <h2 class="text-3xl font-semibold text-purple-600 mb-8">
-                <span class="vi">Công Ty Sản Xuất Gấu Bông</span>
-                <span class="zh hidden">毛绒熊与毛绒动物玩具的生产</span>
-            </h2>
-            <div class="w-32 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-8"></div>
-            <p class="text-xl text-gray-600">
-                <span class="vi">CÔNG TY TNHH QUỐC TẾ THÀNH HẠO VIỆT NAM</span>
-                <span class="zh hidden">越南成昊国际有限责任公司</span>
-            </p>
-            <p class="text-lg text-gray-500 mt-4">
-                <span class="vi">Năm thành lập: 2025</span>
-                <span class="zh hidden">成立年份：2025年</span>
-            </p>
-        </div>
-
-        <!-- Slide 2: Company Introduction -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">2/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">🏢</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Giới Thiệu Công Ty</span>
-                    <span class="zh hidden">公司介绍</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <div class="bg-purple-50 p-4 rounded-lg text-center">
-                        <img src="https://sf-static.upanhlaylink.com/img/image_20250806116b4c33f4fc1abc7f2f8a9b3cc8da24.jpg" alt="Thành Hạo Logo" class="w-20 h-20 mx-auto mb-4 object-contain">
-                        <h3 class="font-semibold text-purple-700 mb-2">
-                            <span class="vi">Logo Công Ty</span>
-                            <span class="zh hidden">品牌标识</span>
-                        </h3>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-blue-700 mb-2">
-                            <span class="vi">Tên công ty:</span>
-                            <span class="zh hidden">企业名称：</span>
-                        </h3>
-                        <p class="text-gray-700">
-                            <span class="vi">CÔNG TY TNHH QUỐC TẾ THÀNH HẠO VIỆT NAM</span>
-                            <span class="zh hidden">越南成昊国际有限责任公司</span>
-                        </p>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-green-700 mb-2">
-                            <span class="vi">Năm thành lập:</span>
-                            <span class="zh hidden">成立年份：</span>
-                        </h3>
-                        <p class="text-gray-700">
-                            <span class="vi">2025</span>
-                            <span class="zh hidden">2025年</span>
-                        </p>
-                    </div>
-                    <div class="bg-orange-50 p-4 rounded-lg">
-                        <h3 class="font-semibold text-orange-700 mb-2">
-                            <span class="vi">Trụ sở chính:</span>
-                            <span class="zh hidden">总部地址：</span>
-                        </h3>
-                        <p class="text-gray-700">
-                            <span class="vi">Thôn Lâm, Xã Tứ Kỳ, Tp Hải Phòng, Việt Nam</span>
-                            <span class="zh hidden">越南海防市四圻乡林村</span>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-6 rounded-xl">
-                    <div class="bg-white p-4 rounded-lg mb-4 text-center shadow-sm">
-                        <img src="https://sf-static.upanhlaylink.com/img/image_2025080690cbdda8fd7182eb418f63b34c397225.jpg" alt="Company Building" class="w-full h-32 object-cover rounded-lg mb-4">
-                        <div class="flex items-center justify-center mb-3">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-white text-2xl font-bold">TH</span>
-                            </div>
-                            <div class="text-left">
-                                <h4 class="font-bold text-purple-700 text-lg">THÀNH HẠO</h4>
-                                <p class="text-sm text-gray-600">International Co., Ltd</p>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-xs">
-                            <div class="bg-purple-50 p-2 rounded">
-                                <p class="font-semibold text-purple-700">EST. 2025</p>
-                            </div>
-                            <div class="bg-blue-50 p-2 rounded">
-                                <p class="font-semibold text-blue-700">VIETNAM</p>
-                            </div>
-                            <div class="bg-green-50 p-2 rounded">
-                                <p class="font-semibold text-green-700">GLOBAL</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed text-sm mb-4">
-                        <span class="vi">Công ty TNHH Quốc tế Thành Hạo được thành lập vào năm 2025, hoạt động chuyên sâu trong lĩnh vực sản xuất gấu bông và thú nhồi bông cao cấp. Với định hướng phát triển bền vững và tầm nhìn quốc tế, Thành Hạo cam kết mang đến những sản phẩm chất lượng vượt trội, an toàn tuyệt đối và giàu giá trị thẩm mỹ.</span>
-                        <span class="zh hidden">成昊国际有限公司专注于高端毛绒玩具的生产，致力于可持续发展与国际化战略。我们承诺提供卓越品质、安全可靠且富有美学价值的产品。</span>
-                    </p>
-                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                        <p class="text-purple-700 font-semibold text-center">
-                            <span class="vi">"Chất lượng là nền tảng – Uy tín là cam kết"</span>
-                            <span class="zh hidden">"质量是基础——信誉是承诺"</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: Vision & Mission -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">3/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">🎯</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Tầm Nhìn và Sứ Mệnh</span>
-                    <span class="zh hidden">愿景与使命</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold text-blue-700 mb-4 flex items-center">
-                        <span class="mr-3">🌟</span>
-                        <span class="vi">Tầm Nhìn</span>
-                        <span class="zh hidden">愿景</span>
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed">
-                        <span class="vi">Trở thành thương hiệu gấu bông được yêu thích nhất tại Việt Nam và mở rộng ra thị trường quốc tế. Chúng tôi hướng đến việc đổi mới không ngừng, mở rộng thị trường toàn cầu và tạo ra giá trị bền vững cho cộng đồng thông qua từng sản phẩm mềm mại và đầy cảm xúc.</span>
-                        <span class="zh hidden">成为越南最受喜爱的毛绒熊品牌，并拓展至国际市场。我们不断创新，拓展全球市场，为社区创造可持续价值。</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold text-green-700 mb-4 flex items-center">
-                        <span class="mr-3">🚀</span>
-                        <span class="vi">Sứ Mệnh</span>
-                        <span class="zh hidden">使命</span>
-                    </h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span class="vi">Cung cấp sản phẩm gấu bông chất lượng cao, an toàn cho sức khỏe người tiêu dùng</span>
-                            <span class="zh hidden">提供高品质、健康安全的毛绒熊产品</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span class="vi">Mang đến niềm vui, sự ấm áp và ký ức tuổi thơ qua từng chú gấu bông</span>
-                            <span class="zh hidden">带来快乐、温暖与童年回忆</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span class="vi">Đóng góp vào sự phát triển của ngành công nghiệp đồ chơi Việt Nam</span>
-                            <span class="zh hidden">推动越南玩具产业发展</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span class="vi">Xây dựng môi trường làm việc sáng tạo, thân thiện cho nhân viên</span>
-                            <span class="zh hidden">打造创意友善的工作环境</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Products -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">4/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">🧸</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Sản Phẩm Chính</span>
-                    <span class="zh hidden">主要产品</span>
-                </h2>
-            </div>
-            
-            <!-- Product Images Section -->
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-xl">
-                    <img src="https://sf-static.upanhlaylink.com/img/image_20250806b2a6d35fe16f8264235c8d79723e530b.jpg" alt="Product Showcase 1" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
-                    <p class="text-center text-gray-600 text-sm">
-                        <span class="vi">Sản phẩm gấu bông chất lượng cao</span>
-                        <span class="zh hidden">高品质毛绒熊产品</span>
-                    </p>
-                </div>
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl">
-                    <img src="https://sf-static.upanhlaylink.com/img/image_2025080618fbfb6460766afc52a0dfd9068b4c31.jpg" alt="Product Showcase 2" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
-                    <p class="text-center text-gray-600 text-sm">
-                        <span class="vi">Đa dạng mẫu mã và thiết kế</span>
-                        <span class="zh hidden">多样化款式与设计</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gradient-to-br from-pink-100 to-purple-100 p-6 rounded-xl text-center">
-                    <div class="text-4xl mb-4">🐻</div>
-                    <h3 class="font-bold text-purple-700 mb-2">
-                        <span class="vi">Gấu Bông Truyền Thống</span>
-                        <span class="zh hidden">传统毛绒熊</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Các mẫu gấu bông cổ điển với nhiều kích cỡ khác nhau</span>
-                        <span class="zh hidden">经典款式，多种尺寸</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-blue-100 to-cyan-100 p-6 rounded-xl text-center">
-                    <div class="text-4xl mb-4">🦁</div>
-                    <h3 class="font-bold text-blue-700 mb-2">
-                        <span class="vi">Thú Nhồi Bông</span>
-                        <span class="zh hidden">毛绒动物玩具</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Thú nhồi bông, thú nhồi bông bọc nhựa mềm (PVC/TPR)</span>
-                        <span class="zh hidden">包括软塑料（PVC/TPR）款式</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-xl text-center">
-                    <div class="text-4xl mb-4">🎭</div>
-                    <h3 class="font-bold text-green-700 mb-2">
-                        <span class="vi">Gấu Bông Theo Chủ Đề</span>
-                        <span class="zh hidden">主题毛绒熊</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Thiết kế theo lễ hội, nhân vật hoạt hình, sự kiện đặc biệt</span>
-                        <span class="zh hidden">节日、卡通角色、特殊活动设计</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-orange-100 to-red-100 p-6 rounded-xl text-center">
-                    <div class="text-4xl mb-4">✨</div>
-                    <h3 class="font-bold text-orange-700 mb-2">
-                        <span class="vi">Gấu Bông Theo Yêu Cầu</span>
-                        <span class="zh hidden">定制毛绒熊</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Dịch vụ thiết kế và sản xuất theo yêu cầu khách hàng</span>
-                        <span class="zh hidden">根据客户需求设计与生产</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5: Production Process -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">5/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">⚙️</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Quy Trình Sản Xuất</span>
-                    <span class="zh hidden">生产流程</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="flex items-center p-4 bg-blue-50 rounded-lg">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
-                        <div>
-                            <h3 class="font-bold text-blue-700">
-                                <span class="vi">Thiết Kế</span>
-                                <span class="zh hidden">设计</span>
-                            </h3>
-                            <p class="text-sm text-gray-600">
-                                <span class="vi">Đội ngũ thiết kế sáng tạo và cập nhật xu hướng mới nhất</span>
-                                <span class="zh hidden">创意团队，紧跟趋势</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-green-50 rounded-lg">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
-                        <div>
-                            <h3 class="font-bold text-green-700">
-                                <span class="vi">Nguyên Liệu</span>
-                                <span class="zh hidden">原材料</span>
-                            </h3>
-                            <p class="text-sm text-gray-600">
-                                <span class="vi">Lựa chọn nguyên liệu an toàn, thân thiện với môi trường</span>
-                                <span class="zh hidden">安全环保</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-purple-50 rounded-lg">
-                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
-                        <div>
-                            <h3 class="font-bold text-purple-700">
-                                <span class="vi">Sản Xuất</span>
-                                <span class="zh hidden">生产</span>
-                            </h3>
-                            <p class="text-sm text-gray-600">
-                                <span class="vi">Công nghệ tiên tiến và kiểm tra chất lượng nghiêm ngặt</span>
-                                <span class="zh hidden">先进技术，严格质检</span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-orange-50 rounded-lg">
-                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-4">4</div>
-                        <div>
-                            <h3 class="font-bold text-orange-700">
-                                <span class="vi">Đóng Gói</span>
-                                <span class="zh hidden">包装</span>
-                            </h3>
-                            <p class="text-sm text-gray-600">
-                                <span class="vi">Đóng gói cẩn thận đảm bảo an toàn khi vận chuyển</span>
-                                <span class="zh hidden">精细包装，运输安全</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-xl">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">
-                        <span class="vi">Cam Kết Chất Lượng</span>
-                        <span class="zh hidden">品质承诺</span>
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        <span class="vi">Thành Hạo sở hữu hệ thống sản xuất hiện đại, quy trình kiểm soát chất lượng nghiêm ngặt, cùng đội ngũ nhân sự chuyên nghiệp, sáng tạo và tận tâm.</span>
-                        <span class="zh hidden">成昊拥有现代化生产系统、严格质量控制流程，以及专业、创意、敬业的团队。</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed">
-                        <span class="vi">Chúng tôi không ngừng đổi mới công nghệ, nâng cao năng lực sản xuất để đáp ứng linh hoạt các yêu cầu OEM/ODM từ thị trường trong nước và quốc tế.</span>
-                        <span class="zh hidden">我们不断创新技术，提升产能，灵活满足国内外市场对 OEM/ODM 的需求。</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 6: Market & Partners -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">6/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">🌍</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Thị Trường và Đối Tác</span>
-                    <span class="zh hidden">市场与合作伙伴</span>
-                </h2>
-            </div>
-            
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-purple-700 mb-6">
-                    <span class="vi">Đối Tác Chiến Lược</span>
-                    <span class="zh hidden">战略合作伙伴</span>
-                </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-                    <div class="bg-gradient-to-br from-red-100 to-pink-100 p-4 rounded-lg text-center">
-                        <img src="https://tse2.mm.bing.net/th/id/OIP.6ScjEZ24CWnLW0BjI0beLwHaF3?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Disney Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-red-700">Walt Disney</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-blue-100 to-cyan-100 p-4 rounded-lg text-center">
-                        <img src="https://comunidadblogger.net/wp-content/uploads/2021/06/walmart-logo.jpg" alt="Walmart Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-blue-700">Walmart</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 p-4 rounded-lg text-center">
-                        <img src="https://th.bing.com/th/id/R.8b904688d8b20fcbec220ba95c818176?rik=J%2bBlzetpkvVcLw&riu=http%3a%2f%2fcdn01.pinkoi.com%2fstore%2fpopmart%2flogo%2foriginal.jpg&ehk=CRbRP6rsCF%2bBJ7UVKJwxnwEopsloFkRcU9CFrRqDrTc%3d&risl=&pid=ImgRaw&r=0" alt="Pop Mart Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-purple-700">Pop Mart</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-green-100 to-teal-100 p-4 rounded-lg text-center">
-                        <img src="https://tse3.mm.bing.net/th/id/OIP.2pniHzaaG8zFGDXpA5zsRwHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Mega Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-green-700">Mega</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-orange-100 to-red-100 p-4 rounded-lg text-center">
-                        <img src="https://sf-static.upanhlaylink.com/img/image_20250806d777f3d10489a0f6294e07df918089b6.jpg" alt="WowWee Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-orange-700">WowWee</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-4 rounded-lg text-center">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.L3RxYbKb9DcIbFFCRJVMiQHaIN?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Jazwares Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-indigo-700">Jazwares</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-4 rounded-lg text-center">
-                        <img src="https://tse3.mm.bing.net/th/id/OIP.fWUpJxetd5NeL-JrlY7t_wHaD-?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hachette Logo" class="w-12 h-8 object-contain mx-auto mb-2">
-                        <p class="text-sm font-semibold text-yellow-700">Hachette</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-gradient-to-r from-purple-100 to-blue-100 p-8 rounded-xl text-center">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    <span class="vi">Chúng tôi trân trọng từng cơ hội hợp tác và luôn sẵn sàng đồng hành cùng quý đối tác, khách hàng trên hành trình kiến tạo giá trị và phát triển lâu dài.</span>
-                    <span class="zh hidden">我们珍视每一次合作机会，并始终准备好与合作伙伴和客户携手同行，共同创造价值，实现长期发展。</span>
-                </p>
-            </div>
-        </div>
-
-        <!-- Slide 7: Management Team -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">7/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">👥</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Đội Ngũ Quản Lý</span>
-                    <span class="zh hidden">管理团队</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
-                    <h3 class="font-bold text-blue-700 mb-2">
-                        <span class="vi">Liu Kang</span>
-                        <span class="zh hidden">刘钢</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Tổng Giám Đốc</span>
-                        <span class="zh hidden">总经理</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
-                    <h3 class="font-bold text-green-700 mb-2">
-                        <span class="vi">Yao Hong Yun</span>
-                        <span class="zh hidden">姚鸿云</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Giám Đốc Điều Hành</span>
-                        <span class="zh hidden">执行董事</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-pink-100 to-purple-100 p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👩‍💼</div>
-                    <h3 class="font-bold text-pink-700 mb-2">
-                        <span class="vi">Nguyễn Thị Hạnh</span>
-                        <span class="zh hidden">阮氏幸</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Trưởng Phòng Nhân Sự</span>
-                        <span class="zh hidden">人力资源部主管</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-orange-100 to-red-100 p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👩‍💼</div>
-                    <h3 class="font-bold text-orange-700 mb-2">
-                        <span class="vi">Nguyễn Thị Kiều</span>
-                        <span class="zh hidden">阮氏娇</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Trưởng Phòng Tài Vụ</span>
-                        <span class="zh hidden">财务部主管</span>
-                    </p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-indigo-100 to-blue-100 p-6 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
-                    <h3 class="font-bold text-indigo-700 mb-2">
-                        <span class="vi">Li Geng Xin</span>
-                        <span class="zh hidden">李耕新</span>
-                    </h3>
-                    <p class="text-sm text-gray-600">
-                        <span class="vi">Giám Đốc Sản Xuất</span>
-                        <span class="zh hidden">生产总监</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Contact -->
-        <div class="slide bg-white rounded-2xl shadow-2xl p-12 relative">
-            <div class="slide-counter">8/8</div>
-            <div class="flex items-center mb-8">
-                <div class="teddy-icon mr-6">📞</div>
-                <h2 class="text-4xl font-bold text-gray-800">
-                    <span class="vi">Liên Hệ</span>
-                    <span class="zh hidden">联系方式</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">
-                            <span class="vi">Thông Tin Liên Hệ</span>
-                            <span class="zh hidden">联系信息</span>
-                        </h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <span class="text-blue-500 mr-3">👨‍💼</span>
-                                <div>
-                                    <p class="font-semibold">
-                                        <span class="vi">董事總經理：劉鋼</span>
-                                        <span class="zh hidden">董事总经理：刘钢</span>
-                                    </p>
-                                    <p class="text-sm text-gray-600">M.D.: LIU GANG</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <span class="text-green-500 mr-3">📧</span>
-                                <div>
-                                    <p class="font-semibold">
-                                        <span class="vi">thanhhao9830@gmail.com</span>
-                                        <span class="zh hidden">thanhhao9830@gmail.com</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <span class="text-purple-500 mr-3">📱</span>
-                                <div>
-                                    <p class="font-semibold">
-                                        <span class="vi">091096358</span>
-                                        <span class="zh hidden">091096358</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-br from-green-100 to-blue-100 p-8 rounded-xl">
-                    <h3 class="text-xl font-bold text-green-700 mb-4">
-                        <span class="vi">Lời Kết</span>
-                        <span class="zh hidden">结语</span>
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                        <span class="vi">Chúng tôi trân trọng từng cơ hội hợp tác và luôn sẵn sàng đồng hành cùng quý đối tác, khách hàng trên hành trình kiến tạo giá trị và phát triển lâu dài.</span>
-                        <span class="zh hidden">我们珍视每一次合作机会，始终准备好与合作伙伴和客户携手同行，共同创造价值，实现长期发展。</span>
-                    </p>
-                    <p class="text-gray-700 leading-relaxed font-semibold">
-                        <span class="vi">Hãy cùng chúng tôi tạo nên những món quà ý nghĩa cho mọi người! 🧸</span>
-                        <span class="zh hidden">让我们一起为大家打造充满意义的礼物吧！🧸</span>
-                    </p>
-                </div>
-            </div>
+        <!-- Page Content Container -->
+        <div id="pageContent" class="bg-white rounded-2xl shadow-2xl p-16 text-center relative flex-1 flex flex-col justify-center min-h-[85vh] fade-in">
+            <!-- Content will be loaded here -->
         </div>
 
         <!-- Navigation -->
@@ -628,14 +111,16 @@
             </button>
             
             <div class="nav-dots" id="navDots">
-                <div class="nav-dot active" onclick="currentSlide(1)"></div>
-                <div class="nav-dot" onclick="currentSlide(2)"></div>
-                <div class="nav-dot" onclick="currentSlide(3)"></div>
-                <div class="nav-dot" onclick="currentSlide(4)"></div>
-                <div class="nav-dot" onclick="currentSlide(5)"></div>
-                <div class="nav-dot" onclick="currentSlide(6)"></div>
-                <div class="nav-dot" onclick="currentSlide(7)"></div>
-                <div class="nav-dot" onclick="currentSlide(8)"></div>
+                <div class="nav-dot active" onclick="goToPage(1)"></div>
+                <div class="nav-dot" onclick="goToPage(2)"></div>
+                <div class="nav-dot" onclick="goToPage(3)"></div>
+                <div class="nav-dot" onclick="goToPage(4)"></div>
+                <div class="nav-dot" onclick="goToPage(5)"></div>
+                <div class="nav-dot" onclick="goToPage(6)"></div>
+                <div class="nav-dot" onclick="goToPage(7)"></div>
+                <div class="nav-dot" onclick="goToPage(8)"></div>
+                <div class="nav-dot" onclick="goToPage(9)"></div>
+                <div class="nav-dot" onclick="goToPage(10)"></div>
             </div>
             
             <button id="nextBtn" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center">
@@ -647,51 +132,1287 @@
     </div>
 
     <script>
-        let currentSlideIndex = 1;
-        const totalSlides = 8;
+        let currentPage = 1;
+        const totalPages = 10;
+        let currentLanguage = 'vi';
 
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
+        // Page content data
+        const pages = {
+            1: {
+                title: "Hồ Sơ Năng Lực",
+                titleZh: "公司资质简介",
+                content: `
+                    <div class="page-counter">1/10</div>
+                    
+                    <!-- Hero Section with Floating Elements -->
+                    <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white bg-opacity-5 rounded-full floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_20250806116b4c33f4fc1abc7f2f8a9b3cc8da24.jpg" alt="Thành Hạo Logo" class="w-32 h-32 mx-auto mb-6 object-contain pulse-glow rounded-full bg-white p-4">
+                            <h1 class="text-5xl font-bold mb-6">
+                                <span class="vi">Hồ Sơ Năng Lực</span>
+                                <span class="zh hidden">公司资质简介</span>
+                            </h1>
+                            <h2 class="text-3xl font-semibold mb-6">
+                                <span class="vi">Công Ty Sản Xuất Gấu Bông</span>
+                                <span class="zh hidden">毛绒熊与毛绒动物玩具的生产</span>
+                            </h2>
+                            <div class="w-32 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6"></div>
+                            <p class="text-xl">
+                                <span class="vi">CÔNG TY TNHH QUỐC TẾ THÀNH HẠO VIỆT NAM</span>
+                                <span class="zh hidden">越南成昊国际有限责任公司</span>
+                            </p>
+                            <p class="text-lg mt-4">
+                                <span class="vi">Năm thành lập: 2025</span>
+                                <span class="zh hidden">成立年份：2025年</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Commitment Cards -->
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-xl border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">✓</div>
+                                <h3 class="font-bold text-green-700 mb-2">
+                                    <span class="vi">Sản phẩm an toàn, chất lượng cao</span>
+                                    <span class="zh hidden">安全优质产品</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-100 p-6 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🎨</div>
+                                <h3 class="font-bold text-blue-700 mb-2">
+                                    <span class="vi">Thiết kế đẹp, giá cả hợp lý</span>
+                                    <span class="zh hidden">美观设计，合理价格</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl border-2 border-purple-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🤝</div>
+                                <h3 class="font-bold text-purple-700 mb-2">
+                                    <span class="vi">Dịch vụ nhanh, uy tín, tận tâm</span>
+                                    <span class="zh hidden">快速可靠贴心服务</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: "Giới Thiệu Công Ty",
+                titleZh: "公司介绍",
+                content: `
+                    <div class="page-counter">2/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">🏢</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Giới Thiệu Công Ty</span>
+                                    <span class="zh hidden">公司介绍</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl border-2 border-purple-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_20250806116b4c33f4fc1abc7f2f8a9b3cc8da24.jpg" alt="Thành Hạo Logo" class="w-20 h-20 mx-auto mb-4 object-contain">
+                                <h3 class="font-semibold text-purple-700 mb-2 text-center">
+                                    <span class="vi">Logo Công Ty</span>
+                                    <span class="zh hidden">品牌标识</span>
+                                </h3>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border-2 border-blue-200">
+                                <h3 class="font-semibold text-blue-700 mb-2">
+                                    <span class="vi">Tên công ty:</span>
+                                    <span class="zh hidden">企业名称：</span>
+                                </h3>
+                                <p class="text-gray-700">
+                                    <span class="vi">CÔNG TY TNHH QUỐC TẾ THÀNH HẠO VIỆT NAM</span>
+                                    <span class="zh hidden">越南成昊国际有限责任公司</span>
+                                </p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-xl border-2 border-green-200">
+                                <h3 class="font-semibold text-green-700 mb-2">
+                                    <span class="vi">Năm thành lập:</span>
+                                    <span class="zh hidden">成立年份：</span>
+                                </h3>
+                                <p class="text-gray-700">2025</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-orange-50 to-red-50 p-4 rounded-xl border-2 border-orange-200">
+                                <h3 class="font-semibold text-orange-700 mb-2">
+                                    <span class="vi">Trụ sở chính:</span>
+                                    <span class="zh hidden">总部地址：</span>
+                                </h3>
+                                <p class="text-gray-700">
+                                    <span class="vi">Thôn Lâm, Xã Tứ Kỳ, Tp Hải Phòng, Việt Nam</span>
+                                    <span class="zh hidden">越南海防市四圻乡林村</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-6 rounded-xl border-2 border-purple-200">
+                            <div class="bg-white p-4 rounded-lg mb-4 text-center shadow-sm">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_2025080690cbdda8fd7182eb418f63b34c397225.jpg" alt="Company Building" class="w-full h-32 object-cover rounded-lg mb-4">
+                                <div class="flex items-center justify-center mb-3">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-white text-2xl font-bold">TH</span>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold text-purple-700 text-lg">THÀNH HẠO</h4>
+                                        <p class="text-sm text-gray-600">International Co., Ltd</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 text-xs">
+                                    <div class="bg-purple-50 p-2 rounded">
+                                        <p class="font-semibold text-purple-700">EST. 2025</p>
+                                    </div>
+                                    <div class="bg-blue-50 p-2 rounded">
+                                        <p class="font-semibold text-blue-700">VIETNAM</p>
+                                    </div>
+                                    <div class="bg-green-50 p-2 rounded">
+                                        <p class="font-semibold text-green-700">GLOBAL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                                <span class="vi">Công ty TNHH Quốc tế Thành Hạo được thành lập vào năm 2025, hoạt động chuyên sâu trong lĩnh vực sản xuất gấu bông và thú nhồi bông cao cấp. Với định hướng phát triển bền vững và tầm nhìn quốc tế, Thành Hạo cam kết mang đến những sản phẩm chất lượng vượt trội, an toàn tuyệt đối và giàu giá trị thẩm mỹ.</span>
+                                <span class="zh hidden">成昊国际有限公司专注于高端毛绒玩具的生产，致力于可持续发展与国际化战略。我们承诺提供卓越品质、安全可靠且富有美学价值的产品。</span>
+                            </p>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-purple-700 font-semibold text-center">
+                                    <span class="vi">"Chất lượng là nền tảng – Uy tín là cam kết"</span>
+                                    <span class="zh hidden">"质量是基础——信誉是承诺"</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                title: "Tầm Nhìn và Sứ Mệnh",
+                titleZh: "愿景与使命",
+                content: `
+                    <div class="page-counter">3/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">🎯</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Tầm Nhìn và Sứ Mệnh</span>
+                                    <span class="zh hidden">愿景与使命</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🌟</div>
+                                <h3 class="text-2xl font-bold text-blue-700">
+                                    <span class="vi">Tầm Nhìn</span>
+                                    <span class="zh hidden">愿景</span>
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="vi">Trở thành thương hiệu gấu bông được yêu thích nhất tại Việt Nam và mở rộng ra thị trường quốc tế. Chúng tôi hướng đến việc đổi mới không ngừng, mở rộng thị trường toàn cầu và tạo ra giá trị bền vững cho cộng đồng thông qua từng sản phẩm mềm mại và đầy cảm xúc.</span>
+                                <span class="zh hidden">成为越南最受喜爱的毛绒熊品牌，并拓展至国际市场。我们不断创新，拓展全球市场，为社区创造可持续价值。</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🚀</div>
+                                <h3 class="text-2xl font-bold text-green-700">
+                                    <span class="vi">Sứ Mệnh</span>
+                                    <span class="zh hidden">使命</span>
+                                </h3>
+                            </div>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="vi">Cung cấp sản phẩm gấu bông chất lượng cao, an toàn cho sức khỏe người tiêu dùng</span>
+                                    <span class="zh hidden">提供高品质、健康安全的毛绒熊产品</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="vi">Mang đến niềm vui, sự ấm áp và ký ức tuổi thơ qua từng chú gấu bông</span>
+                                    <span class="zh hidden">带来快乐、温暖与童年回忆</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="vi">Đóng góp vào sự phát triển của ngành công nghiệp đồ chơi Việt Nam</span>
+                                    <span class="zh hidden">推动越南玩具产业发展</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="vi">Xây dựng môi trường làm việc sáng tạo, thân thiện cho nhân viên</span>
+                                    <span class="zh hidden">打造创意友善的工作环境</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            4: {
+                title: "Sản Phẩm Chính",
+                titleZh: "主要产品",
+                content: `
+                    <div class="page-counter">4/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-pink-600 to-rose-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">🧸</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Sản Phẩm Chính</span>
+                                    <span class="zh hidden">主要产品</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Images Section -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-xl border-2 border-pink-200 hover:shadow-lg transition-all duration-300">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_20250806b2a6d35fe16f8264235c8d79723e530b.jpg" alt="Product Showcase 1" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                            <p class="text-center text-gray-600 text-sm">
+                                <span class="vi">Sản phẩm gấu bông chất lượng cao</span>
+                                <span class="zh hidden">高品质毛绒熊产品</span>
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_2025080618fbfb6460766afc52a0dfd9068b4c31.jpg" alt="Product Showcase 2" class="w-full h-48 object-cover rounded-lg mb-4 shadow-md">
+                            <p class="text-center text-gray-600 text-sm">
+                                <span class="vi">Đa dạng mẫu mã và thiết kế</span>
+                                <span class="zh hidden">多样化款式与设计</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-gradient-to-br from-pink-100 to-purple-100 p-6 rounded-xl text-center border-2 border-pink-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🐻</div>
+                            <h3 class="font-bold text-purple-700 mb-2">
+                                <span class="vi">Gấu Bông Truyền Thống</span>
+                                <span class="zh hidden">传统毛绒熊</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Các mẫu gấu bông cổ điển với nhiều kích cỡ khác nhau</span>
+                                <span class="zh hidden">经典款式，多种尺寸</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-blue-100 to-cyan-100 p-6 rounded-xl text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🦁</div>
+                            <h3 class="font-bold text-blue-700 mb-2">
+                                <span class="vi">Thú Nhồi Bông</span>
+                                <span class="zh hidden">毛绒动物玩具</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Thú nhồi bông, thú nhồi bông bọc nhựa mềm (PVC/TPR)</span>
+                                <span class="zh hidden">包括软塑料（PVC/TPR）款式</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-xl text-center border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🎭</div>
+                            <h3 class="font-bold text-green-700 mb-2">
+                                <span class="vi">Gấu Bông Theo Chủ Đề</span>
+                                <span class="zh hidden">主题毛绒熊</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Thiết kế theo lễ hội, nhân vật hoạt hình, sự kiện đặc biệt</span>
+                                <span class="zh hidden">节日、卡通角色、特殊活动设计</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-orange-100 to-red-100 p-6 rounded-xl text-center border-2 border-orange-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">✨</div>
+                            <h3 class="font-bold text-orange-700 mb-2">
+                                <span class="vi">Gấu Bông Theo Yêu Cầu</span>
+                                <span class="zh hidden">定制毛绒熊</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Dịch vụ thiết kế và sản xuất theo yêu cầu khách hàng</span>
+                                <span class="zh hidden">根据客户需求设计与生产</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            5: {
+                title: "Quy Trình Sản Xuất",
+                titleZh: "生产流程",
+                content: `
+                    <div class="page-counter">5/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-cyan-600 to-blue-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">⚙️</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Quy Trình Sản Xuất</span>
+                                    <span class="zh hidden">生产流程</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="flex items-center p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
+                                <div>
+                                    <h3 class="font-bold text-blue-700">
+                                        <span class="vi">Thiết Kế</span>
+                                        <span class="zh hidden">设计</span>
+                                    </h3>
+                                    <p class="text-sm text-gray-600">
+                                        <span class="vi">Đội ngũ thiết kế sáng tạo và cập nhật xu hướng mới nhất</span>
+                                        <span class="zh hidden">创意团队，紧跟趋势</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
+                                <div>
+                                    <h3 class="font-bold text-green-700">
+                                        <span class="vi">Nguyên Liệu</span>
+                                        <span class="zh hidden">原材料</span>
+                                    </h3>
+                                    <p class="text-sm text-gray-600">
+                                        <span class="vi">Lựa chọn nguyên liệu an toàn, thân thiện với môi trường</span>
+                                        <span class="zh hidden">安全环保</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border-2 border-purple-200 hover:shadow-lg transition-all duration-300">
+                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
+                                <div>
+                                    <h3 class="font-bold text-purple-700">
+                                        <span class="vi">Sản Xuất</span>
+                                        <span class="zh hidden">生产</span>
+                                    </h3>
+                                    <p class="text-sm text-gray-600">
+                                        <span class="vi">Công nghệ tiên tiến và kiểm tra chất lượng nghiêm ngặt</span>
+                                        <span class="zh hidden">先进技术，严格质检</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border-2 border-orange-200 hover:shadow-lg transition-all duration-300">
+                                <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-4">4</div>
+                                <div>
+                                    <h3 class="font-bold text-orange-700">
+                                        <span class="vi">Đóng Gói</span>
+                                        <span class="zh hidden">包装</span>
+                                    </h3>
+                                    <p class="text-sm text-gray-600">
+                                        <span class="vi">Đóng gói cẩn thận đảm bảo an toàn khi vận chuyển</span>
+                                        <span class="zh hidden">精细包装，运输安全</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-xl border-2 border-gray-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-gray-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🏭</div>
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    <span class="vi">Cam Kết Chất Lượng</span>
+                                    <span class="zh hidden">品质承诺</span>
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <span class="vi">Thành Hạo sở hữu hệ thống sản xuất hiện đại, quy trình kiểm soát chất lượng nghiêm ngặt, cùng đội ngũ nhân sự chuyên nghiệp, sáng tạo và tận tâm.</span>
+                                <span class="zh hidden">成昊拥有现代化生产系统、严格质量控制流程，以及专业、创意、敬业的团队。</span>
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="vi">Chúng tôi không ngừng đổi mới công nghệ, nâng cao năng lực sản xuất để đáp ứng linh hoạt các yêu cầu OEM/ODM từ thị trường trong nước và quốc tế.</span>
+                                <span class="zh hidden">我们不断创新技术，提升产能，灵活满足国内外市场对 OEM/ODM 的需求。</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            6: {
+                title: "Thị Trường và Đối Tác",
+                titleZh: "市场与合作伙伴",
+                content: `
+                    <div class="page-counter">6/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">🌍</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Thị Trường và Đối Tác</span>
+                                    <span class="zh hidden">市场与合作伙伴</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-purple-700 mb-6">
+                            <span class="vi">Đối Tác Chiến Lược</span>
+                            <span class="zh hidden">战略合作伙伴</span>
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                            <div class="bg-gradient-to-br from-red-100 to-pink-100 p-4 rounded-lg text-center border-2 border-red-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://tse2.mm.bing.net/th/id/OIP.6ScjEZ24CWnLW0BjI0beLwHaF3?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Disney Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-red-700">Walt Disney</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-100 to-cyan-100 p-4 rounded-lg text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://comunidadblogger.net/wp-content/uploads/2021/06/walmart-logo.jpg" alt="Walmart Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-blue-700">Walmart</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-100 to-pink-100 p-4 rounded-lg text-center border-2 border-purple-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://th.bing.com/th/id/R.8b904688d8b20fcbec220ba95c818176?rik=J%2bBlzetpkvVcLw&riu=http%3a%2f%2fcdn01.pinkoi.com%2fstore%2fpopmart%2flogo%2foriginal.jpg&ehk=CRbRP6rsCF%2bBJ7UVKJwxnwEopsloFkRcU9CFrRqDrTc%3d&risl=&pid=ImgRaw&r=0" alt="Pop Mart Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-purple-700">Pop Mart</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-100 to-teal-100 p-4 rounded-lg text-center border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://tse3.mm.bing.net/th/id/OIP.2pniHzaaG8zFGDXpA5zsRwHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Mega Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-green-700">Mega</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-100 to-red-100 p-4 rounded-lg text-center border-2 border-orange-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_20250806d777f3d10489a0f6294e07df918089b6.jpg" alt="WowWee Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-orange-700">WowWee</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-4 rounded-lg text-center border-2 border-indigo-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://tse1.mm.bing.net/th/id/OIP.L3RxYbKb9DcIbFFCRJVMiQHaIN?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Jazwares Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-indigo-700">Jazwares</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-4 rounded-lg text-center border-2 border-yellow-200 hover:shadow-lg transition-all duration-300">
+                                <img src="https://tse3.mm.bing.net/th/id/OIP.fWUpJxetd5NeL-JrlY7t_wHaD-?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hachette Logo" class="w-12 h-8 object-contain mx-auto mb-2">
+                                <p class="text-sm font-semibold text-yellow-700">Hachette</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-100 to-blue-100 p-8 rounded-xl text-center border-2 border-purple-200">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            <span class="vi">Chúng tôi trân trọng từng cơ hội hợp tác và luôn sẵn sàng đồng hành cùng quý đối tác, khách hàng trên hành trình kiến tạo giá trị và phát triển lâu dài.</span>
+                            <span class="zh hidden">我们珍视每一次合作机会，并始终准备好与合作伙伴和客户携手同行，共同创造价值，实现长期发展。</span>
+                        </p>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            7: {
+                title: "Đội Ngũ Quản Lý",
+                titleZh: "管理团队",
+                content: `
+                    <div class="page-counter">7/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-slate-600 to-gray-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">👥</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Đội Ngũ Quản Lý</span>
+                                    <span class="zh hidden">管理团队</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-6 rounded-xl text-center border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
+                            <h3 class="font-bold text-blue-700 mb-2">
+                                <span class="vi">Liu Kang</span>
+                                <span class="zh hidden">刘钢</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Tổng Giám Đốc</span>
+                                <span class="zh hidden">总经理</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-xl text-center border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
+                            <h3 class="font-bold text-green-700 mb-2">
+                                <span class="vi">Yao Hong Yun</span>
+                                <span class="zh hidden">姚鸿云</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Giám Đốc Điều Hành</span>
+                                <span class="zh hidden">执行董事</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-pink-100 to-purple-100 p-6 rounded-xl text-center border-2 border-pink-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👩‍💼</div>
+                            <h3 class="font-bold text-pink-700 mb-2">
+                                <span class="vi">Nguyễn Thị Hạnh</span>
+                                <span class="zh hidden">阮氏幸</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Trưởng Phòng Nhân Sự</span>
+                                <span class="zh hidden">人力资源部主管</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-orange-100 to-red-100 p-6 rounded-xl text-center border-2 border-orange-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👩‍💼</div>
+                            <h3 class="font-bold text-orange-700 mb-2">
+                                <span class="vi">Nguyễn Thị Kiều</span>
+                                <span class="zh hidden">阮氏娇</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Trưởng Phòng Tài Vụ</span>
+                                <span class="zh hidden">财务部主管</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-indigo-100 to-blue-100 p-6 rounded-xl text-center border-2 border-indigo-200 hover:shadow-lg transition-all duration-300">
+                            <div class="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">👨‍💼</div>
+                            <h3 class="font-bold text-indigo-700 mb-2">
+                                <span class="vi">Li Geng Xin</span>
+                                <span class="zh hidden">李耕新</span>
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Giám Đốc Sản Xuất</span>
+                                <span class="zh hidden">生产总监</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            8: {
+                title: "Liên Hệ",
+                titleZh: "联系方式",
+                content: `
+                    <div class="page-counter">8/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">📞</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Liên Hệ</span>
+                                    <span class="zh hidden">联系方式</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-6 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                                <div class="text-center mb-6">
+                                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">📋</div>
+                                    <h3 class="text-xl font-bold text-blue-700">
+                                        <span class="vi">Thông Tin Liên Hệ</span>
+                                        <span class="zh hidden">联系信息</span>
+                                    </h3>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                                        <span class="text-blue-500 mr-3 text-xl">👨‍💼</span>
+                                        <div>
+                                            <p class="font-semibold">
+                                                <span class="vi">董事總經理：劉鋼</span>
+                                                <span class="zh hidden">董事总经理：刘钢</span>
+                                            </p>
+                                            <p class="text-sm text-gray-600">M.D.: LIU GANG</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                                        <span class="text-green-500 mr-3 text-xl">📧</span>
+                                        <div>
+                                            <p class="font-semibold">thanhhao9830@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                                        <span class="text-purple-500 mr-3 text-xl">📱</span>
+                                        <div>
+                                            <p class="font-semibold">091096358</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-green-100 to-blue-100 p-8 rounded-xl border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">💬</div>
+                                <h3 class="text-xl font-bold text-green-700">
+                                    <span class="vi">Lời Kết</span>
+                                    <span class="zh hidden">结语</span>
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <span class="vi">Chúng tôi trân trọng từng cơ hội hợp tác và luôn sẵn sàng đồng hành cùng quý đối tác, khách hàng trên hành trình kiến tạo giá trị và phát triển lâu dài.</span>
+                                <span class="zh hidden">我们珍视每一次合作机会，始终准备好与合作伙伴和客户携手同行，共同创造价值，实现长期发展。</span>
+                            </p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                                <p class="text-green-700 font-semibold">
+                                    <span class="vi">Hãy cùng chúng tôi tạo nên những món quà ý nghĩa cho mọi người! 🧸</span>
+                                    <span class="zh hidden">让我们一起为大家打造充满意义的礼物吧！🧸</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            9: {
+                title: "Tại Sao Chọn Thành Hạo",
+                titleZh: "为什么选择成昊",
+                content: `
+                    <div class="page-counter">9/10</div>
+                    
+                    <!-- Hero Section -->
+                    <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white bg-opacity-5 rounded-full floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mr-4">⭐</div>
+                                <h2 class="text-4xl font-bold">
+                                    <span class="vi">Tại Sao Chọn Thành Hạo?</span>
+                                    <span class="zh hidden">为什么选择成昊？</span>
+                                </h2>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4">
+                                <span class="vi">🏆 Đối Tác Tin Cậy Hàng Đầu</span>
+                                <span class="zh hidden">🏆 值得信赖的首选合作伙伴</span>
+                            </h3>
+                            <p class="text-xl leading-relaxed max-w-4xl mx-auto">
+                                <span class="vi">Với kinh nghiệm sâu rộng trong ngành sản xuất gấu bông và cam kết không ngừng về chất lượng, Thành Hạo đã trở thành lựa chọn tin cậy của hàng trăm doanh nghiệp và thương hiệu lớn trên toàn thế giới.</span>
+                                <span class="zh hidden">凭借在毛绒玩具制造领域的深厚经验和对品质的不懈承诺，成昊已成为全球数百家企业和知名品牌的可信选择。</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Key Advantages Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <!-- Quality Excellence -->
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-xl border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">🎯</div>
+                                <h4 class="text-xl font-bold text-green-700">
+                                    <span class="vi">Chất Lượng Vượt Trội</span>
+                                    <span class="zh hidden">卓越品质</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-green-500 mr-2">✓</span>
+                                    <span class="vi">Nguyên liệu cao cấp, an toàn 100%</span>
+                                    <span class="zh hidden">高端材料，100%安全</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-green-500 mr-2">✓</span>
+                                    <span class="vi">Kiểm tra chất lượng 15 bước</span>
+                                    <span class="zh hidden">15步质量检测</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-green-500 mr-2">✓</span>
+                                    <span class="vi">Chứng nhận quốc tế CE, CPSIA</span>
+                                    <span class="zh hidden">CE、CPSIA国际认证</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Innovation & Design -->
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-100 p-6 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">💡</div>
+                                <h4 class="text-xl font-bold text-blue-700">
+                                    <span class="vi">Sáng Tạo & Thiết Kế</span>
+                                    <span class="zh hidden">创新设计</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-blue-500 mr-2">✓</span>
+                                    <span class="vi">Đội ngũ thiết kế 20+ chuyên gia</span>
+                                    <span class="zh hidden">20+专业设计师团队</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-blue-500 mr-2">✓</span>
+                                    <span class="vi">Ra mắt 50+ mẫu mới mỗi tháng</span>
+                                    <span class="zh hidden">每月推出50+新款</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-blue-500 mr-2">✓</span>
+                                    <span class="vi">Dịch vụ thiết kế riêng 24/7</span>
+                                    <span class="zh hidden">24/7定制设计服务</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Global Reach -->
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl border-2 border-purple-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">🌍</div>
+                                <h4 class="text-xl font-bold text-purple-700">
+                                    <span class="vi">Tầm Nhìn Toàn Cầu</span>
+                                    <span class="zh hidden">全球视野</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-purple-500 mr-2">✓</span>
+                                    <span class="vi">Xuất khẩu 45+ quốc gia</span>
+                                    <span class="zh hidden">出口45+国家</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-purple-500 mr-2">✓</span>
+                                    <span class="vi">Đối tác Disney, Walmart, Pop Mart</span>
+                                    <span class="zh hidden">迪士尼、沃尔玛、泡泡玛特合作伙伴</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-purple-500 mr-2">✓</span>
+                                    <span class="vi">Mạng lưới phân phối 500+ điểm</span>
+                                    <span class="zh hidden">500+分销网点</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Speed & Efficiency -->
+                        <div class="bg-gradient-to-br from-orange-50 to-red-100 p-6 rounded-xl border-2 border-orange-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">⚡</div>
+                                <h4 class="text-xl font-bold text-orange-700">
+                                    <span class="vi">Tốc Độ & Hiệu Quả</span>
+                                    <span class="zh hidden">速度效率</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-orange-500 mr-2">✓</span>
+                                    <span class="vi">Giao hàng nhanh trong 7-15 ngày</span>
+                                    <span class="zh hidden">7-15天快速交货</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-orange-500 mr-2">✓</span>
+                                    <span class="vi">Sản xuất 100,000+ sản phẩm/tháng</span>
+                                    <span class="zh hidden">月产10万+产品</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-orange-500 mr-2">✓</span>
+                                    <span class="vi">Hỗ trợ khách hàng 24/7</span>
+                                    <span class="zh hidden">24/7客户支持</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Sustainability -->
+                        <div class="bg-gradient-to-br from-teal-50 to-green-100 p-6 rounded-xl border-2 border-teal-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">🌱</div>
+                                <h4 class="text-xl font-bold text-teal-700">
+                                    <span class="vi">Phát Triển Bền Vững</span>
+                                    <span class="zh hidden">可持续发展</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-teal-500 mr-2">✓</span>
+                                    <span class="vi">100% vật liệu tái chế được</span>
+                                    <span class="zh hidden">100%可回收材料</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-teal-500 mr-2">✓</span>
+                                    <span class="vi">Nhà máy xanh, không khí thải</span>
+                                    <span class="zh hidden">绿色工厂，零排放</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-teal-500 mr-2">✓</span>
+                                    <span class="vi">Chứng nhận ISO 14001</span>
+                                    <span class="zh hidden">ISO 14001认证</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Customer Success -->
+                        <div class="bg-gradient-to-br from-indigo-50 to-blue-100 p-6 rounded-xl border-2 border-indigo-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-4">
+                                <div class="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-3">🤝</div>
+                                <h4 class="text-xl font-bold text-indigo-700">
+                                    <span class="vi">Thành Công Khách Hàng</span>
+                                    <span class="zh hidden">客户成功</span>
+                                </h4>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-center">
+                                    <span class="text-indigo-500 mr-2">✓</span>
+                                    <span class="vi">98% khách hàng hài lòng</span>
+                                    <span class="zh hidden">98%客户满意度</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-indigo-500 mr-2">✓</span>
+                                    <span class="vi">85% tỷ lệ khách hàng quay lại</span>
+                                    <span class="zh hidden">85%客户回购率</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="text-indigo-500 mr-2">✓</span>
+                                    <span class="vi">Bảo hành trọn đời sản phẩm</span>
+                                    <span class="zh hidden">产品终身保修</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            10: {
+                title: "Lời Cảm Ơn",
+                titleZh: "感谢词",
+                content: `
+                    <div class="page-counter">10/10</div>
+                    
+                    <!-- Hero Section with Floating Elements -->
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-2xl mb-8 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white bg-opacity-10 rounded-full -mr-16 -mt-16 floating-element"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white bg-opacity-10 rounded-full -ml-12 -mb-12 floating-element"></div>
+                        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white bg-opacity-5 rounded-full floating-element"></div>
+                        <div class="relative z-10 text-center">
+                            <div class="text-6xl mb-6">🧸</div>
+                            <h2 class="text-4xl font-bold mb-6">
+                                <span class="vi">LỜI CẢM ƠN</span>
+                                <span class="zh hidden">感谢词</span>
+                            </h2>
+                            <p class="text-xl leading-relaxed max-w-4xl mx-auto">
+                                <span class="vi">Kính gửi Quý khách hàng, Quý đối tác và toàn thể bạn bè thân hữu</span>
+                                <span class="zh hidden">致尊敬的客户、合作伙伴和所有亲朋好友</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Thank You Content Grid -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <!-- Left Column - Gratitude Message -->
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-2 border-blue-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🙏</div>
+                                <h3 class="text-2xl font-bold text-blue-700">
+                                    <span class="vi">Lời Tri Ân Chân Thành</span>
+                                    <span class="zh hidden">真诚感谢</span>
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <span class="vi">Công ty Thành Hạo xin trân trọng gửi lời cảm ơn sâu sắc đến tất cả Quý vị đã dành sự quan tâm, tin tưởng và ủng hộ chúng tôi trong những bước đi đầu tiên của hành trình phát triển.</span>
+                                <span class="zh hidden">成昊公司谨向所有在我们发展初期给予关注、信任和支持的各位致以深深的感谢。</span>
+                            </p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <p class="text-blue-700 font-semibold text-center italic">
+                                    <span class="vi">"Sự đồng hành của Quý vị là nguồn động lực to lớn"</span>
+                                    <span class="zh hidden">"您的陪伴是我们巨大的动力"</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Future Vision -->
+                        <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-xl border-2 border-green-200 hover:shadow-lg transition-all duration-300">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🌟</div>
+                                <h3 class="text-2xl font-bold text-green-700">
+                                    <span class="vi">Tầm Nhìn Tương Lai</span>
+                                    <span class="zh hidden">未来愿景</span>
+                                </h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <span class="vi">Chúng tôi tin rằng, với sự tin tưởng của Quý khách hàng và đối tác, Thành Hạo sẽ từng bước khẳng định vị thế trong ngành quà tặng và đồ chơi mềm, góp phần lan tỏa niềm vui đến mọi người.</span>
+                                <span class="zh hidden">我们相信，凭借客户和合作伙伴的信任，成昊将逐步确立在礼品和毛绒玩具行业的地位，为大家带来快乐。</span>
+                            </p>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <p class="text-green-700 font-semibold text-center italic">
+                                    <span class="vi">"Cùng nhau tạo nên những kỷ niệm đẹp"</span>
+                                    <span class="zh hidden">"共同创造美好回忆"</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commitment Cards -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border-2 border-orange-200 text-center hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-3">💝</div>
+                            <h4 class="font-bold text-orange-700 mb-2">
+                                <span class="vi">Chất Lượng</span>
+                                <span class="zh hidden">品质</span>
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Cam kết sản phẩm an toàn, chất lượng cao nhất</span>
+                                <span class="zh hidden">承诺最高品质安全产品</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-2 border-purple-200 text-center hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-3">🎨</div>
+                            <h4 class="font-bold text-purple-700 mb-2">
+                                <span class="vi">Sáng Tạo</span>
+                                <span class="zh hidden">创新</span>
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Không ngừng đổi mới thiết kế và công nghệ</span>
+                                <span class="zh hidden">不断创新设计与技术</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-xl border-2 border-teal-200 text-center hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white text-xl mx-auto mb-3">🤝</div>
+                            <h4 class="font-bold text-teal-700 mb-2">
+                                <span class="vi">Tận Tâm</span>
+                                <span class="zh hidden">用心</span>
+                            </h4>
+                            <p class="text-sm text-gray-600">
+                                <span class="vi">Phục vụ khách hàng với sự tận tâm nhất</span>
+                                <span class="zh hidden">用心服务每一位客户</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Final Message -->
+                    <div class="bg-gradient-to-r from-indigo-100 to-purple-100 p-8 rounded-xl text-center border-2 border-indigo-200">
+                        <p class="text-xl font-bold text-indigo-700 mb-4">
+                            <span class="vi">Trân trọng,</span>
+                            <span class="zh hidden">此致敬礼，</span>
+                        </p>
+                        <p class="text-lg font-semibold text-gray-800 mb-6">
+                            <span class="vi">CÔNG TY TNHH QUỐC TẾ THÀNH HẠO VIỆT NAM</span>
+                            <span class="zh hidden">越南成昊国际有限责任公司</span>
+                        </p>
+                        <div class="flex justify-center items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-2xl font-bold">TH</span>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-bold text-purple-700 text-lg">THÀNH HẠO</p>
+                                <p class="text-sm text-gray-600">International Co., Ltd</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action Section -->
+                    <div class="mt-8 mb-4">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-xl text-center">
+                            <h3 class="text-lg font-bold mb-2">
+                                <span class="vi">🚀 Sẵn Sàng Bắt Đầu Hành Trình Cùng Chúng Tôi?</span>
+                                <span class="zh hidden">🚀 准备好与我们一起开启旅程吗？</span>
+                            </h3>
+                            <p class="text-sm mb-3">
+                                <span class="vi">Hãy để Thành Hạo biến ý tưởng của bạn thành hiện thực!</span>
+                                <span class="zh hidden">让成昊将您的创意变为现实！</span>
+                            </p>
+                            <div class="flex justify-center space-x-3 text-xs">
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📧 thanhhao9830@gmail.com</span>
+                                </div>
+                                <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">📱 091096358</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function loadPage(pageNumber) {
+            const pageContent = document.getElementById('pageContent');
+            const page = pages[pageNumber];
+            
+            if (page) {
+                // Add fade out effect
+                pageContent.style.opacity = '0';
+                
+                setTimeout(() => {
+                    pageContent.innerHTML = page.content;
+                    
+                    // Update language visibility
+                    updateLanguageVisibility();
+                    
+                    // Update navigation dots
+                    updateNavigationDots(pageNumber);
+                    
+                    // Add fade in effect
+                    pageContent.style.opacity = '1';
+                    pageContent.classList.add('fade-in');
+                }, 150);
+            }
+        }
+
+        function updateNavigationDots(activePageNumber) {
             const dots = document.querySelectorAll('.nav-dot');
-            
-            if (n > totalSlides) currentSlideIndex = 1;
-            if (n < 1) currentSlideIndex = totalSlides;
-            
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            slides[currentSlideIndex - 1].classList.add('active');
-            dots[currentSlideIndex - 1].classList.add('active');
+            dots.forEach((dot, index) => {
+                if (index + 1 === activePageNumber) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
         }
 
-        function nextSlide() {
-            currentSlideIndex++;
-            showSlide(currentSlideIndex);
+        function updateLanguageVisibility() {
+            if (currentLanguage === 'vi') {
+                document.querySelectorAll('.zh').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.vi').forEach(el => el.classList.remove('hidden'));
+            } else {
+                document.querySelectorAll('.vi').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.zh').forEach(el => el.classList.remove('hidden'));
+            }
         }
 
-        function prevSlide() {
-            currentSlideIndex--;
-            showSlide(currentSlideIndex);
+        function goToPage(pageNumber) {
+            if (pageNumber >= 1 && pageNumber <= totalPages) {
+                currentPage = pageNumber;
+                loadPage(currentPage);
+            }
         }
 
-        function currentSlide(n) {
-            currentSlideIndex = n;
-            showSlide(currentSlideIndex);
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                loadPage(currentPage);
+            }
         }
 
-        // Event listeners
-        document.getElementById('nextBtn').addEventListener('click', nextSlide);
-        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                loadPage(currentPage);
+            }
+        }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') nextSlide();
-            if (e.key === 'ArrowLeft') prevSlide();
-        });
-
-        // Language toggle functionality
-        let currentLanguage = 'vi'; // Default to Vietnamese
-        
         function toggleLanguage() {
             const langToggle = document.getElementById('langToggle');
             const langIcon = document.getElementById('langIcon');
@@ -702,29 +1423,29 @@
                 currentLanguage = 'zh';
                 langIcon.textContent = '🇨🇳';
                 langText.textContent = 'Tiếng Việt';
-                
-                // Hide Vietnamese, show Chinese
-                document.querySelectorAll('.vi').forEach(el => el.classList.add('hidden'));
-                document.querySelectorAll('.zh').forEach(el => el.classList.remove('hidden'));
             } else {
                 // Switch to Vietnamese
                 currentLanguage = 'vi';
                 langIcon.textContent = '🇻🇳';
                 langText.textContent = '中文';
-                
-                // Hide Chinese, show Vietnamese
-                document.querySelectorAll('.zh').forEach(el => el.classList.add('hidden'));
-                document.querySelectorAll('.vi').forEach(el => el.classList.remove('hidden'));
             }
+            
+            updateLanguageVisibility();
         }
-        
-        // Add event listener for language toggle
+
+        // Event listeners
+        document.getElementById('nextBtn').addEventListener('click', nextPage);
+        document.getElementById('prevBtn').addEventListener('click', prevPage);
         document.getElementById('langToggle').addEventListener('click', toggleLanguage);
 
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') nextPage();
+            if (e.key === 'ArrowLeft') prevPage();
+        });
 
-
-        // Auto-advance slides (optional)
-        // setInterval(nextSlide, 10000); // Uncomment for auto-advance every 10 seconds
+        // Initialize the first page
+        loadPage(1);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96b2deaea7c1095e',t:'MTc1NDUyODc3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96bb87c7f067850a',t:'MTc1NDYxOTU4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
